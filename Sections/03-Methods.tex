@@ -4,10 +4,19 @@ Analisis data mahasiswa dilakukan melalui beberapa tahan terstruktur. Pertama, d
 \begin{itemize}
     \item \textbf{Pengodean variabel kategorikal ordinal}: Pengodean variabel kategorikal ordinal atau \textit{Integer Encoding} adalah strategi paling sederhana untuk mengkonversi data kategorikal ordinal menjadi data numerik \textcite{Pargent2022}. Sebuah bilangan bulat (\textit{integer}) diberikan kepada setiap kategori, asalkan jumlah kategori yang ada diketahui. Pengodean ini tidak menambahkan kolom baru ke data, tetapi menyiratkan urutan variabel yang mungkin tidak benar-benar ada \textcite{Potdar2017}. Sebagai contoh, pada penelitian \textcite{Prasetyawan2025}, atribut “Tingkat Pekerjaan” dengan kategori “Lokal”, “Nasional”, dan “Internasional” diubah menjadi 0, 1, dan 2 mengikuti urutannya.
     \item \textbf{\textit{One-hot encoding} variabel kategori nominal}: \textit{One-hot encoding} adalah teknik yang umum digunakan di bidang statistik dan machine learning, terutama saat menghadapi variabel kategorikal. Proses ini melibatkan representasi setiap kategori sebagai vektor biner. Dalam proses ini, vektor biner dibuat untuk setiap kategori unik, dengan semua elemen disetel ke nol kecuali yang sesuai dengan kategori pengamatan yang diberikan, yang disetel ke satu. Hal ini menghasilkan matriks vektor biner yang mewakili variabel kategorikal dalam kumpulan data (\cite{JIS2024}.
-    \item 
+    \item \textbf{Standarisasi fitur numerik}: Dalam Principal Component Analysis (PCA), komponen utama (principal components) dibentuk sebagai kombinasi linear dari variabel-variabel asli. Namun, ketika variabel-variabel tersebut memiliki satuan (unit) pengukuran yang berbeda-beda, PCA bisa memberikan hasil yang kurang representatif. Hal ini karena PCA berfokus pada varians (keragaman) dari data, dan varians sangat dipengaruhi oleh skala pengukuran\textcite{Jolliffe2016}.
+
+    Misalnya, jika satu variabel diukur dalam ribuan (seperti pendapatan), dan yang lain dalam skala kecil (seperti skor 1–5), maka variabel dengan skala besar akan otomatis memiliki varians lebih tinggi, dan lebih "menonjol" dalam pembentukan komponen utama, meskipun secara substansi belum tentu lebih penting \textcite{Jolliffe2016}.
+
+    Untuk mengatasi hal ini, biasanya dilakukan standarisasi data sebelum menjalankan PCA. Standarisasi dilakukan dengan:
+    \begin{enumerate}
+        \item Mengurangi setiap nilai data dengan rata-ratanya (centring), dan
+        \item Membagi hasilnya dengan standar deviasi masing-masing variabel (scaling).
+    \end{enumerate}
+    Hasilnya, semua variabel memiliki rata-rata nol dan deviasi standar satu, sehingga tidak ada variabel yang “mendominasi” hanya karena perbedaan skala. Dengan demikian, PCA menjadi lebih adil dan interpretasi komponen utama lebih bermakna.
 \end{itemize}
-\subsection{Method 01}
-\blindtext
+\subsection{Klasterisasi K-Means}
+\textit{K-means clustering} adalah salah satu metode pengelompokan data (clustering) yang banyak digunakan, di mana data dibagi ke dalam sejumlah klaster berdasarkan nilai rata-rata (mean) dari objek-objek dalam klaster tersebut \textcite{Ikotun2023}.
 
 \subsubsection{Method 01.A}
 \blindtext

@@ -1,0 +1,56 @@
+# LaTeX intermediate and output files
+*.aux
+*.bbl
+*.blg
+*.brf
+*.fls
+*.bcf
+*.fdb_latexmk
+*.glo
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+*.acn
+*.acr
+*.alg
+*.glg
+*.gls
+*.ist
+*.maf
+*.mtc*
+*.nav
+*.pdfsync
+*.ps
+*.run.xml
+*.snm
+*.synctex.gz
+*.thm
+*.xdv
+
+# Editors
+*~
+*.swp
+*.bak
+*.tmp
+*.backup
+
+# Output files
+*.dvi
+
+# Build directories
+_build/
+build/
+output/
+latex.out/
+latex.log/
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db

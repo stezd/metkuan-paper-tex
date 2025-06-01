@@ -1,4 +1,4 @@
-% Author Name: José Areia 
+% Author Name: José Areia
 % Author Contact: jose.apareia@gmail.com
 % Version: 1.0.3 - 18/04/2025
 % Public Repository: https://github.com/joseareia/nob-article
@@ -52,7 +52,7 @@
 \fancyfoot[RE]{\footnotesize\footertext}
 
 % Fonts
-\usepackage[T1]{fontenc} 
+\usepackage[T1]{fontenc}
 \usepackage[tt=false, type1=true]{libertine}
 \usepackage[varqu]{zi4}
 \usepackage[libertine]{newtxmath}
