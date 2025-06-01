@@ -67,8 +67,8 @@
     uniquelist=false % Only show one author, e.g. (Author et al., 2023)
 ]{biblatex}
 
-\setlength\bibitemsep{1.5\itemsep} % Adjust the space between references
-\setlength\bibhang{2em} % Remove indentation
+\setlength\bibitemsep{0.5\itemsep} % Adjust the space between references
+\setlength\bibhang{2em}
 \renewcommand*{\bibfont}{\normalsize} % Change references font size
 \addbibresource{Bibliography/Bibliography.bib} % Reference document
 
@@ -109,7 +109,7 @@
 \usepackage{booktabs} % Table style
 \usepackage{multirow} % Multirow
 \newcommand{\customtableformatting}{
-    \renewcommand{\arraystretch}{1.15}\footnotesize
+    \renewcommand{\arraystretch}{1.10}\footnotesize
 } % Increase space between rows and smaller font
 \AtBeginEnvironment{tabular}{\customtableformatting} % Apply to tabular
 \AtBeginEnvironment{tabularx}{\customtableformatting} % Apply to tabularx

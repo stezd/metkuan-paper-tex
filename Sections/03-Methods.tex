@@ -16,7 +16,33 @@ Analisis data mahasiswa dilakukan melalui beberapa tahan terstruktur. Pertama, d
     Hasilnya, semua variabel memiliki rata-rata nol dan deviasi standar satu, sehingga tidak ada variabel yang “mendominasi” hanya karena perbedaan skala. Dengan demikian, PCA menjadi lebih adil dan interpretasi komponen utama lebih bermakna.
 \end{itemize}
 \subsection{Klasterisasi K-Means}
-\textit{K-means clustering} adalah salah satu metode pengelompokan data (clustering) yang banyak digunakan, di mana data dibagi ke dalam sejumlah klaster berdasarkan nilai rata-rata (mean) dari objek-objek dalam klaster tersebut \textcite{Ikotun2023}.
+\textit{K-means clustering} merupakan salah satu metode pengelompokan data (clustering) yang banyak digunakan, di mana data dibagi ke dalam sejumlah klaster berdasarkan nilai rata-rata (mean) dari objek-objek dalam klaster tersebut (\cite{Ikotun2023}). Fungsi objektifnya adalah meminimalkan within-cluster sum of squares (WCSS), yaitu jumlah kuadrat jarak (biasanya Euclidean) antara setiap titik data dengan centroid (rata-rata) klasternya. Dengan kata lain, algoritma ini berusaha agar data dalam setiap klaster sedekat mungkin dengan centroid masing-masing.
+Pada buku yang ditulis oleh \textcite{VanderPlas2016}, proses K-Means bersifat iteratif dan dapat dijelaskan dalam langkah-langkah berikut:
+\begin{enumerate}
+    \item \textbf{Menentukan jumlah klaster ($k$)}: Tentukan nilai $k$ sesuai jumlah klaster yang diinginkan.
+    \item \textbf{Inisialisasi centroid awal}: Pilih secara acak $k$ titik data sebagai centroid awal, atau gunakan metode \textit{K-Means++} untuk hasil inisialisasi yang lebih baik.
+    \item \textbf{Penugasan data ke klaster}: Hitung jarak setiap titik data ke masing-masing centroid (umumnya menggunakan jarak Euclidean), lalu tetapkan setiap titik ke klaster dengan centroid terdekat.
+    \item \textbf{Pembaruan centroid}: Hitung rata-rata posisi seluruh anggota setiap klaster untuk mendapatkan centroid baru.
+    \item \textbf{Iterasi hingga konvergen}: Ulangi langkah penugasan dan pembaruan centroid hingga tidak ada perubahan signifikan pada anggota klaster atau posisi centroid (algoritma telah konvergen).
+\end{enumerate}
+Dalam tiap iterasi K-Means mengkalkulasi jarak dari seluruh titik data ke setiap centroid untuk menentukan pembagian yang optimal. Algoritma ini membuat asumsi bahwa klaster-klaster berbentuk sferis (isotropik) dan distribusi data normal searah (Gaussian) sehingga penggunaan jarak Euclidean relevan. Akibatnya, K-Means kurang efektif untuk klaster yang bentuknya tidak bulat atau data dengan fitur kategorikal tanpa encoding khusus. Namun, setelah pra-pemrosesan yang tepat, K-Means populer karena kesederhanaan dan efisiensinya bagi dataset berukuran besar.
 
-\subsubsection{Method 01.A}
-\blindtext
+\subsection{Analisis Komponen Utama (PCA)}
+Analisis Komponen Utama (PCA) adalah teknik reduksi dimensi yang mentransformasikan kumpulan data berdimensi tinggi menjadi sejumlah komponen utama (principal components) yang saling ortogonal. Tujuan utama PCA adalah mempertahankan sebanyak mungkin varians asli data dengan jumlah fitur yang lebih sedikit (\cite{You2020}). Langkah-langkah teknis PCA meliputi:
+\begin{enumerate}
+    \item \textbf{Standarisasi data}: Sebelum PCA, fitur-fitur numerik distandarisasi sehingga setiap fitur memiliki rata-rata nol dan variansi satu.
+    \item \textbf{Matriks kovarians}: Hitung matriks kovarians dari data terstandarisasi untuk mengukur korelasi antar fitur.
+    \item \textbf{Dekomposisi eigen}: Lakukan dekomposisi eigen pada matriks kovarians untuk memperoleh eigenvektor dan eigenvalue. Eigenvektor menjadi arah komponen utama, sedangkan eigenvalue mencerminkan variansi data pada arah tersebut.
+    \item \textbf{Pemilihan komponen}: Urutkan eigenvektor berdasarkan nilai eigenvalue-nya. Komponen utama dengan eigenvalue terbesar menangkap bagian variansi data yang paling besar. Komponen utama pertama (PC1) menjelaskan variansi terbesar, diikuti oleh komponen kedua (PC2), dan seterusnya.
+    \item \textbf{Proyeksi data}: Proyeksikan data asli ke subruang yang dibentuk oleh beberapa komponen utama teratas. Jika dipilih $p$ komponen, maka setiap titik data direpresentasikan dalam ruang berdimensi $p$ dengan mengalikan data terstandarisasi dengan matriks eigenvektor terpilih.
+\end{enumerate}
+
+Dengan dekomposisi eigen ini, PCA menyederhanakan data sambil mempertahankan pola terpentingnya. Kontribusi variansi dari tiap komponen utama dapat dihitung dari rasio eigenvalue terhadap total eigenvalue (total variansi). Misalnya, jika dua komponen utama pertama menangkap lebih dari 90\% variansi, data dapat divisualisasikan dalam bidang dua dimensi yang melibatkan PC1 dan PC2.
+Pengurangan dimensi melalui PCA sangat berguna untuk visualisasi klaster. Hasil klaster K-Means dapat diplot pada 2 komponen utama teratas sehingga pola pengelompokan menjadi lebih mudah dipahami (\cite{Decheva2018}).
+
+\subsection{Evaluasi Klaster}
+Untuk menentukan jumlah klaster optimal dan menilai kualitas hasil klasterisasi digunakan beberapa metode evaluasi klaster berikut:
+\begin{itemize}
+    \item \textbf{\textit{Metode Elbow}} adalah teknik yang umum digunakan untuk validasi klaster pada klasterisasi K-means \parencite{Son2025}. Metode ini menggunakan pendekatan visual untuk menilai jumlah klaster (K) yang optimal dengan menganalisis nilai Sum of Squared Errors (SSE) di dalam setiap klaster. Titik K optimal diidentifikasi dengan mencari "elbow" pada kurva yang menggambarkan nilai SSE untuk berbagai nilai K. Titik elbow ini menandakan penurunan SSE yang paling signifikan, yang menunjukkan titik di mana penambahan jumlah klaster selanjutnya memberikan penurunan SSE yang semakin kecil (diminishing returns) \parencite{Sugar2003,Umargono2020}.
+    \item 
+\end{itemize}
