@@ -9,7 +9,6 @@
 \hyphenpenalty=1000
 \exhyphenpenalty=1000
 \righthyphenmin=3
-\usepackage[indonesian,english]{babel}
 % Toogle Classes/Options
 \usepackage{etoolbox} % Required for conditional logic
 \newtoggle{unnumberedsections} % Create toggle for a class option
@@ -22,6 +21,7 @@
 \LoadClass[a4,12pt,oneside]{article}
 
 % Required Packages
+\usepackage{svg}
 \usepackage{graphicx} % Required for including images
 \usepackage{amsmath} % Mathematical expressions
 \usepackage{amssymb} % Mathematical symbols
@@ -126,8 +126,8 @@
 \usepackage{caption} % Required for customizing captions
 \captionsetup{skip=6pt} % Whitespace between figures/tables and the caption
 \captionsetup{labelfont={bf,footnotesize}, textfont={footnotesize}}
-\captionsetup[table]{skip=2pt,singlelinecheck=off,labelsep=newline}
-\captionsetup[figure]{skip=7pt,singlelinecheck=off,labelsep=period}
+\captionsetup[table]{skip=2pt,singlelinecheck=off,labelsep=newline, name=Tabel}
+\captionsetup[figure]{skip=7pt,singlelinecheck=off,labelsep=period,name=Grafik}
 
 % Lists
 \usepackage{enumitem} % Required for list customization

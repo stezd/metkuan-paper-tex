@@ -6,7 +6,7 @@
 \documentclass[onecolumn]{NobArticle}
 \runninghead{Segmentasi Mahasiswa dengan PCA dan K-Means Clustering}
 \footertext{\textit{KOM1221 | Metode Kuantitatif}}
-
+\usepackage[]{ccicons}
 % Title
 \title{Segmentasi Mahasiswa Berdasarkan Kebiasaan Belajar dan Karakteristik Personal Menggunakan PCA dan K-Means Clustering}
 
@@ -25,19 +25,17 @@
 % Abstract
 \renewcommand{\maketitlehookd}{%
 \begin{abstract}
-    \noindent Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor arcu luctus, imperdiet urna iaculis, mattis eros. Pellentesque iaculis odio vel nisl ullamcorper, nec faucibus ipsum molestie. Sed dictum nisl non aliquet porttitor. Etiam vulputate arcu dignissim, finibus sem et, viverra nisl. Aenean luctus congue massa, ut laoreet metus ornare in. Nunc fermentum nisi imperdiet lectus tincidunt vestibulum at ac elit. Nulla mattis nisl eu malesuada suscipit. Aliquam arcu turpis, ultrices sed luctus ac, vehicula id metus. Morbi eu feugiat velit, et tempus augue. Proin ac mattis tortor. Donec tincidunt, ante rhoncus luctus semper, arcu lorem lobortis justo, nec convallis ante quam quis lectus. Aenean tincidunt sodales massa, et hendrerit tellus mattis ac. Sed non pretium nibh. Donec cursus maximus luctus. Vivamus lobortis eros et massa porta porttitor.
-
+    Penelitian ini bertujuan untuk melakukan segmentasi mahasiswa berdasarkan kebiasaan belajar dan karakteristik personal menggunakan metode Principal Component Analysis (PCA) dan K-Means Clustering. Dataset yang digunakan mencakup 493 observasi dengan 16 atribut, termasuk variabel demografis, prestasi akademik, dan aktivitas digital seperti durasi bermain game. Tahapan analisis meliputi pra-pemrosesan data, reduksi dimensi dengan PCA, dan pengelompokan data menggunakan K-Means Clustering. Hasil penelitian menunjukkan bahwa mahasiswa dapat dikelompokkan ke dalam tiga klaster utama, dengan karakteristik yang berbeda dalam hal performa akademik, kebiasaan belajar, dan aktivitas bermain game. Evaluasi menggunakan Silhouette Score menunjukkan nilai 0.12, mengindikasikan pemisahan klaster yang belum optimal. Temuan ini memberikan wawasan bagi institusi pendidikan untuk merancang intervensi yang lebih terarah, khususnya bagi mahasiswa dengan intensitas bermain game tinggi dan performa akademik rendah.
     \medskip
 
-    \small{\textbf{Kata Kunci:} Keyword A, Keyword B, Keyword C.}
+    \small{\textbf{Kata Kunci:} K-Means Clustering, Kebiasaan Belajar, PCA, Performa Akademik, Segmentasi Mahasiswa.}
 \end{abstract}
 }
 
 \begin{document}
-
 \small
 \maketitle
-
+\let\thefootnote\relax\footnotetext{Karya ini dilisensikan di bawah Lisensi Creative Commons Atribusi 4.0 Internasional \ccbynd }
 \input{Sections/01-Introduction}
 \input{Sections/02-Data}
 \input{Sections/03-Methods}
@@ -45,5 +43,5 @@
 \input{Sections/05-SimpulanSaran}
 
 \printbibliography
-
+\ccbynd
 \end{document}
