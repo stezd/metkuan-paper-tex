@@ -2,39 +2,39 @@
 Analisis data mahasiswa dilakukan melalui beberapa tahan terstruktur. Pertama, data mentah harus melalui tahap \textit{pra-pemrosesan} karena data mentah rentan terhadap gangguan, kerusakan, dan tidak konsisten. Data yang buruk dapat memengaruhi keakuratan dan menyebabkan prediksi yang salah, Sehingga perlu untuk meningkatkan kualitas data dengan \textit{pra-pemrosesan} \textcite{Maharana2022}. Proses \textit{pra-pemrosesan} mencakup transformasi data berikut:
 
 \begin{itemize}
-    \item \textbf{Pengodean variabel kategorikal ordinal}: Pengodean variabel kategorikal ordinal atau \textit{Integer Encoding} adalah strategi paling sederhana untuk mengkonversi data kategorikal ordinal menjadi data numerik \textcite{Pargent2022}. Sebuah bilangan bulat (\textit{integer}) diberikan kepada setiap kategori, asalkan jumlah kategori yang ada diketahui. Pengodean ini tidak menambahkan kolom baru ke data, tetapi menyiratkan urutan variabel yang mungkin tidak benar-benar ada \textcite{Potdar2017}. Sebagai contoh, pada penelitian \textcite{Prasetyawan2025}, atribut “Tingkat Pekerjaan” dengan kategori “Lokal”, “Nasional”, dan “Internasional” diubah menjadi 0, 1, dan 2 mengikuti urutannya.
-    \item \textbf{\textit{One-hot encoding} variabel kategori nominal}: \textit{One-hot encoding} adalah teknik yang umum digunakan di bidang statistik dan machine learning, terutama saat menghadapi variabel kategorikal. Proses ini melibatkan representasi setiap kategori sebagai vektor biner. Dalam proses ini, vektor biner dibuat untuk setiap kategori unik, dengan semua elemen disetel ke nol kecuali yang sesuai dengan kategori pengamatan yang diberikan, yang disetel ke satu. Hal ini menghasilkan matriks vektor biner yang mewakili variabel kategorikal dalam kumpulan data (\cite{JIS2024}.
-    \item \textbf{Standarisasi fitur numerik}: Dalam Principal Component Analysis (PCA), komponen utama (principal components) dibentuk sebagai kombinasi linear dari variabel-variabel asli. Namun, ketika variabel-variabel tersebut memiliki satuan (unit) pengukuran yang berbeda-beda, PCA bisa memberikan hasil yang kurang representatif. Hal ini karena PCA berfokus pada varians (keragaman) dari data, dan varians sangat dipengaruhi oleh skala pengukuran\textcite{Jolliffe2016}.
+	\item \textbf{Pengodean variabel kategorikal ordinal}: Pengodean variabel kategorikal ordinal atau \textit{Integer Encoding} adalah strategi paling sederhana untuk mengkonversi data kategorikal ordinal menjadi data numerik \textcite{Pargent2022}. Sebuah bilangan bulat (\textit{integer}) diberikan kepada setiap kategori, asalkan jumlah kategori yang ada diketahui. Pengodean ini tidak menambahkan kolom baru ke data, tetapi menyiratkan urutan variabel yang mungkin tidak benar-benar ada \textcite{Potdar2017}. Sebagai contoh, pada penelitian \textcite{Prasetyawan2025}, atribut “Tingkat Pekerjaan” dengan kategori “Lokal”, “Nasional”, dan “Internasional” diubah menjadi 0, 1, dan 2 mengikuti urutannya.
+	\item \textbf{\textit{One-hot encoding} variabel kategori nominal}: \textit{One-hot encoding} adalah teknik yang umum digunakan di bidang statistik dan machine learning, terutama saat menghadapi variabel kategorikal. Proses ini melibatkan representasi setiap kategori sebagai vektor biner. Dalam proses ini, vektor biner dibuat untuk setiap kategori unik, dengan semua elemen disetel ke nol kecuali yang sesuai dengan kategori pengamatan yang diberikan, yang disetel ke satu. Hal ini menghasilkan matriks vektor biner yang mewakili variabel kategorikal dalam kumpulan data (\cite{JIS2024}).
+	\item \textbf{Standarisasi fitur numerik}: Dalam Principal Component Analysis (PCA), komponen utama (principal components) dibentuk sebagai kombinasi linear dari variabel-variabel asli. Namun, ketika variabel-variabel tersebut memiliki satuan (unit) pengukuran yang berbeda-beda, PCA bisa memberikan hasil yang kurang representatif. Hal ini karena PCA berfokus pada varians (keragaman) dari data, dan varians sangat dipengaruhi oleh skala pengukuran\textcite{Jolliffe2016}.
 
-    Misalnya, jika satu variabel diukur dalam ribuan (seperti pendapatan), dan yang lain dalam skala kecil (seperti skor 1–5), maka variabel dengan skala besar akan otomatis memiliki varians lebih tinggi, dan lebih "menonjol" dalam pembentukan komponen utama, meskipun secara substansi belum tentu lebih penting \textcite{Jolliffe2016}.
+	      Misalnya, jika satu variabel diukur dalam ribuan (seperti pendapatan), dan yang lain dalam skala kecil (seperti skor 1–5), maka variabel dengan skala besar akan otomatis memiliki varians lebih tinggi, dan lebih "menonjol" dalam pembentukan komponen utama, meskipun secara substansi belum tentu lebih penting \textcite{Jolliffe2016}.
 
-    Untuk mengatasi hal ini, biasanya dilakukan standarisasi data sebelum menjalankan PCA. Standarisasi dilakukan dengan:
-    \begin{enumerate}
-        \item Mengurangi setiap nilai data dengan rata-ratanya (centring), dan
-        \item Membagi hasilnya dengan standar deviasi masing-masing variabel (scaling).
-    \end{enumerate}
-    Hasilnya, semua variabel memiliki rata-rata nol dan deviasi standar satu, sehingga tidak ada variabel yang “mendominasi” hanya karena perbedaan skala. Dengan demikian, PCA menjadi lebih adil dan interpretasi komponen utama lebih bermakna.
+	      Untuk mengatasi hal ini, biasanya dilakukan standarisasi data sebelum menjalankan PCA. Standarisasi dilakukan dengan:
+	      \begin{enumerate}
+		      \item Mengurangi setiap nilai data dengan rata-ratanya (centring), dan
+		      \item Membagi hasilnya dengan standar deviasi masing-masing variabel (scaling).
+	      \end{enumerate}
+	      Hasilnya, semua variabel memiliki rata-rata nol dan deviasi standar satu, sehingga tidak ada variabel yang “mendominasi” hanya karena perbedaan skala. Dengan demikian, PCA menjadi lebih adil dan interpretasi komponen utama lebih bermakna.
 \end{itemize}
 \subsection{Klasterisasi K-Means}
 \textit{K-means clustering} merupakan salah satu metode pengelompokan data (clustering) yang banyak digunakan, di mana data dibagi ke dalam sejumlah klaster berdasarkan nilai rata-rata (mean) dari objek-objek dalam klaster tersebut (\cite{Ikotun2023}). Fungsi objektifnya adalah meminimalkan within-cluster sum of squares (WCSS), yaitu jumlah kuadrat jarak (biasanya Euclidean) antara setiap titik data dengan centroid (rata-rata) klasternya. Dengan kata lain, algoritma ini berusaha agar data dalam setiap klaster sedekat mungkin dengan centroid masing-masing.
 Pada buku yang ditulis oleh \textcite{VanderPlas2016}, proses K-Means bersifat iteratif dan dapat dijelaskan dalam langkah-langkah berikut:
 \begin{enumerate}
-    \item \textbf{Menentukan jumlah klaster ($k$)}: Tentukan nilai $k$ sesuai jumlah klaster yang diinginkan.
-    \item \textbf{Inisialisasi centroid awal}: Pilih secara acak $k$ titik data sebagai centroid awal, atau gunakan metode \textit{K-Means++} untuk hasil inisialisasi yang lebih baik.
-    \item \textbf{Penugasan data ke klaster}: Hitung jarak setiap titik data ke masing-masing centroid (umumnya menggunakan jarak Euclidean), lalu tetapkan setiap titik ke klaster dengan centroid terdekat.
-    \item \textbf{Pembaruan centroid}: Hitung rata-rata posisi seluruh anggota setiap klaster untuk mendapatkan centroid baru.
-    \item \textbf{Iterasi hingga konvergen}: Ulangi langkah penugasan dan pembaruan centroid hingga tidak ada perubahan signifikan pada anggota klaster atau posisi centroid (algoritma telah konvergen).
+	\item \textbf{Menentukan jumlah klaster ($k$)}: Tentukan nilai $k$ sesuai jumlah klaster yang diinginkan.
+	\item \textbf{Inisialisasi centroid awal}: Pilih secara acak $k$ titik data sebagai centroid awal, atau gunakan metode \textit{K-Means++} untuk hasil inisialisasi yang lebih baik.
+	\item \textbf{Penugasan data ke klaster}: Hitung jarak setiap titik data ke masing-masing centroid (umumnya menggunakan jarak Euclidean), lalu tetapkan setiap titik ke klaster dengan centroid terdekat.
+	\item \textbf{Pembaruan centroid}: Hitung rata-rata posisi seluruh anggota setiap klaster untuk mendapatkan centroid baru.
+	\item \textbf{Iterasi hingga konvergen}: Ulangi langkah penugasan dan pembaruan centroid hingga tidak ada perubahan signifikan pada anggota klaster atau posisi centroid (algoritma telah konvergen).
 \end{enumerate}
 Dalam tiap iterasi K-Means mengkalkulasi jarak dari seluruh titik data ke setiap centroid untuk menentukan pembagian yang optimal. Algoritma ini membuat asumsi bahwa klaster-klaster berbentuk sferis (isotropik) dan distribusi data normal searah (Gaussian) sehingga penggunaan jarak Euclidean relevan. Akibatnya, K-Means kurang efektif untuk klaster yang bentuknya tidak bulat atau data dengan fitur kategorikal tanpa encoding khusus. Namun, setelah pra-pemrosesan yang tepat, K-Means populer karena kesederhanaan dan efisiensinya bagi dataset berukuran besar.
 
 \subsection{Analisis Komponen Utama (PCA)}
 Analisis Komponen Utama (PCA) adalah teknik reduksi dimensi yang mentransformasikan kumpulan data berdimensi tinggi menjadi sejumlah komponen utama (principal components) yang saling ortogonal. Tujuan utama PCA adalah mempertahankan sebanyak mungkin varians asli data dengan jumlah fitur yang lebih sedikit (\cite{You2020}). Langkah-langkah teknis PCA meliputi:
 \begin{enumerate}
-    \item \textbf{Standarisasi data}: Sebelum PCA, fitur-fitur numerik distandarisasi sehingga setiap fitur memiliki rata-rata nol dan variansi satu.
-    \item \textbf{Matriks kovarians}: Hitung matriks kovarians dari data terstandarisasi untuk mengukur korelasi antar fitur.
-    \item \textbf{Dekomposisi eigen}: Lakukan dekomposisi eigen pada matriks kovarians untuk memperoleh eigenvektor dan eigenvalue. Eigenvektor menjadi arah komponen utama, sedangkan eigenvalue mencerminkan variansi data pada arah tersebut.
-    \item \textbf{Pemilihan komponen}: Urutkan eigenvektor berdasarkan nilai eigenvalue-nya. Komponen utama dengan eigenvalue terbesar menangkap bagian variansi data yang paling besar. Komponen utama pertama (PC1) menjelaskan variansi terbesar, diikuti oleh komponen kedua (PC2), dan seterusnya.
-    \item \textbf{Proyeksi data}: Proyeksikan data asli ke subruang yang dibentuk oleh beberapa komponen utama teratas. Jika dipilih $p$ komponen, maka setiap titik data direpresentasikan dalam ruang berdimensi $p$ dengan mengalikan data terstandarisasi dengan matriks eigenvektor terpilih.
+	\item \textbf{Standarisasi data}: Sebelum PCA, fitur-fitur numerik distandarisasi sehingga setiap fitur memiliki rata-rata nol dan variansi satu.
+	\item \textbf{Matriks kovarians}: Hitung matriks kovarians dari data terstandarisasi untuk mengukur korelasi antar fitur.
+	\item \textbf{Dekomposisi eigen}: Lakukan dekomposisi eigen pada matriks kovarians untuk memperoleh eigenvektor dan eigenvalue. Eigenvektor menjadi arah komponen utama, sedangkan eigenvalue mencerminkan variansi data pada arah tersebut.
+	\item \textbf{Pemilihan komponen}: Urutkan eigenvektor berdasarkan nilai eigenvalue-nya. Komponen utama dengan eigenvalue terbesar menangkap bagian variansi data yang paling besar. Komponen utama pertama (PC1) menjelaskan variansi terbesar, diikuti oleh komponen kedua (PC2), dan seterusnya.
+	\item \textbf{Proyeksi data}: Proyeksikan data asli ke subruang yang dibentuk oleh beberapa komponen utama teratas. Jika dipilih $p$ komponen, maka setiap titik data direpresentasikan dalam ruang berdimensi $p$ dengan mengalikan data terstandarisasi dengan matriks eigenvektor terpilih.
 \end{enumerate}
 
 Dengan dekomposisi eigen ini, PCA menyederhanakan data sambil mempertahankan pola terpentingnya. Kontribusi variansi dari tiap komponen utama dapat dihitung dari rasio eigenvalue terhadap total eigenvalue (total variansi). Misalnya, jika dua komponen utama pertama menangkap lebih dari 90\% variansi, data dapat divisualisasikan dalam bidang dua dimensi yang melibatkan PC1 dan PC2.
@@ -43,7 +43,86 @@ Pengurangan dimensi melalui PCA sangat berguna untuk visualisasi klaster. Hasil 
 \subsection{Evaluasi Klaster}
 Untuk menentukan jumlah klaster optimal dan menilai kualitas hasil klasterisasi digunakan beberapa metode evaluasi klaster berikut:
 \begin{itemize}
-     \item \textbf{\textit{Elbow Method}}: pendekatan visual untuk menilai jumlah klaster (K) yang optimal dengan menganalisis nilai Sum of Squared Errors (SSE) di dalam setiap klaster. Titik K optimal diidentifikasi dengan mencari "elbow" pada kurva yang menggambarkan nilai SSE untuk berbagai nilai K. Titik elbow ini menandakan penurunan SSE yang paling signifikan, yang menunjukkan titik di mana penambahan jumlah klaster selanjutnya memberikan penurunan SSE yang semakin kecil (diminishing returns) \parencite{Sugar2003,Umargono2020}.
-    \item \textbf{\textit{Silhouette Score}}: \textit{Silhouette} menunjukkan objek mana yang berada dengan baik di dalam klasternya, dan objek mana yang hanya berada di antara dua klaster (\cite{Rousseeuw1987}), mengimplementasikan bahwa silhouette dapat dijadikan sebagai \textit{metric} evaluasi dari proses klastering. \textit{Silhouette score} adalah angka yang didapatkan dari hasil evaluasi metode \textit{silhouette} itu sendiri. Angka tersebut mengukur seberapa mirip suatu objek dengan klasternya sendiri dibandingkan dengan kemiripannya terhadap klaster lain (\cite{Januzaj2023}). \textit{Silhouette Score} memiliki rentang nilai -1 hingga 1. Dimana \textit{Silhouette Score} mendekati -1 menandakan klastering yang buruk, sedangkan \textit{Silhouette Score} mendekati 1 menandakan klastering yang baik.
-    \item \textbf{\textit{Gap Data}}:
+	\item \textbf{\textit{Elbow Method}}: pendekatan visual untuk menilai jumlah klaster (K) yang optimal dengan menganalisis nilai Sum of Squared Errors (SSE) di dalam setiap klaster. Titik K optimal diidentifikasi dengan mencari "elbow" pada kurva yang menggambarkan nilai SSE untuk berbagai nilai K. Titik elbow ini menandakan penurunan SSE yang paling signifikan, yang menunjukkan titik di mana penambahan jumlah klaster selanjutnya memberikan penurunan SSE yang semakin kecil (diminishing returns) \parencite{Sugar2003,Umargono2020}.
+	\item \textbf{\textit{Silhouette Score}}: \textit{Silhouette} menunjukkan objek mana yang berada dengan baik di dalam klasternya, dan objek mana yang hanya berada di antara dua klaster (\cite{Rousseeuw1987}), mengimplementasikan bahwa silhouette dapat dijadikan sebagai \textit{metric} evaluasi dari proses klastering. \textit{Silhouette score} adalah angka yang didapatkan dari hasil evaluasi metode \textit{silhouette} itu sendiri. Angka tersebut mengukur seberapa mirip suatu objek dengan klasternya sendiri dibandingkan dengan kemiripannya terhadap klaster lain (\cite{Januzaj2023}). \textit{Silhouette Score} memiliki rentang nilai -1 hingga 1. Dimana \textit{Silhouette Score} mendekati -1 menandakan klastering yang buruk, sedangkan \textit{Silhouette Score} mendekati 1 menandakan klastering yang baik.
+	\item \textbf{\textit{Gap Statistic}}: \textit{Gap Statistic} adalah metode statistik yang digunakan untuk menentukan jumlah klaster optimal dengan membandingkan perubahan within-cluster dispersion (SSE) pada data asli dengan data acak yang tidak memiliki struktur klaster (\cite{Tibshirani2001}). Prosedurnya melibatkan perhitungan SSE untuk berbagai nilai $k$ pada data asli, lalu membandingkannya dengan SSE rata-rata dari beberapa dataset acak yang dihasilkan dengan distribusi serupa. Nilai \textit{Gap} dihitung sebagai selisih logaritmik antara SSE acak dan SSE data asli. Jumlah klaster optimal dipilih pada titik di mana nilai \textit{Gap} maksimum, yang menunjukkan bahwa struktur klaster pada data nyata jauh lebih baik daripada data acak, sehingga mengindikasikan adanya klaster yang valid.
 \end{itemize}
+
+\subsection{Alur Analisis Data}
+
+Alur analisis data dalam penelitian ini dilakukan secara sistematis melalui beberapa tahapan utama sebagai berikut:
+
+\begin{enumerate}
+	\item \textbf{Pra-pemrosesan Data:} Data mentah terlebih dahulu dibersihkan dan dipersiapkan, termasuk penanganan data hilang, pengodean variabel kategorikal (ordinal dan nominal), serta standarisasi fitur numerik agar seluruh variabel berada pada skala yang sebanding.
+	\item \textbf{Reduksi Dimensi (PCA):} Setelah data siap, dilakukan Analisis Komponen Utama (PCA) untuk mereduksi dimensi data dan mengekstrak fitur-fitur utama yang paling berkontribusi terhadap variasi data.
+	\item \textbf{Klasterisasi K-Means:} Data hasil reduksi dimensi kemudian dikelompokkan menggunakan algoritma K-Means. Penentuan jumlah klaster optimal dilakukan dengan metode Elbow.
+	\item \textbf{Evaluasi Klaster:} Hasil klasterisasi dievaluasi menggunakan metrik seperti Silhouette Score dan Gap Statistic untuk menilai kualitas dan validitas klaster yang terbentuk.
+	\item \textbf{Visualisasi Hasil:} Hasil akhir divisualisasikan menggunakan berbagai teknik visualisasi, seperti plot klaster dan biplot PCA, untuk memudahkan interpretasi pola pengelompokan dalam data.
+\end{enumerate}
+
+Untuk memperjelas tahapan analisis data yang dilakukan, Figure~\ref{fig:alur} berikut menyajikan diagram alur proses secara visual dari awal hingga akhir penelitian.
+
+\begin{figure}[h]
+	\centering
+	\resizebox{0.4\linewidth}{!}{\input{Figures/alurdata.tex}}
+	\caption{Diagram alur analisis data dalam penelitian ini.}\label{fig:alur}
+\end{figure}
+
+Setiap tahapan di atas diimplementasikan secara terstruktur menggunakan bahasa pemrograman R, sehingga seluruh proses dapat direplikasi dan diverifikasi oleh peneliti lain.
+
+\subsection{Implementasi dengan R}
+R adalah bahasa pemrograman dan lingkungan perangkat lunak yang banyak digunakan untuk analisis statistik, komputasi data, dan visualisasi \parencite{RCoreTeam2024}. Dalam penelitian ini, implementasi analisis dilakukan menggunakan beberapa paket utama di R, antara lain \texttt{dplyr} untuk manipulasi data, \texttt{factoextra} dan \texttt{cluster} untuk analisis klasterisasi dan visualisasi, serta \texttt{corrplot} untuk visualisasi korelasi antar variabel. Paket-paket ini menyediakan fungsi-fungsi yang sangat mendukung proses pengolahan data, analisis statistik, serta penerapan metode machine learning seperti klasterisasi dan Principal Component Analysis (PCA) \parencite{Wickham2023, Szczesna2022}.
+
+R bersifat open source dan didukung oleh komunitas yang sangat aktif, sehingga tersedia banyak paket tambahan seperti \texttt{tidyverse}, \texttt{cluster}, \texttt{factoextra}, dan \texttt{corrplot} untuk analisis data dan visualisasi. Selain itu, penggunaan script di R memungkinkan proses analisis yang transparan, terstruktur, dan mudah direplikasi oleh peneliti lain.
+\subsubsection{Contoh Kode Implementasi di R}
+
+Berikut adalah contoh kode R yang digunakan dalam penelitian ini untuk melakukan pra-pemrosesan data, penentuan jumlah klaster optimal, klasterisasi K-Means, analisis PCA, dan visualisasi hasil:
+
+\begin{lstlisting}[language=R, caption={Contoh implementasi analisis klasterisasi dan PCA di R}]
+# Memuat library yang diperlukan
+library(dplyr)
+library(factoextra)
+library(cluster)
+library(corrplot)
+
+# Pra-pemrosesan: encoding variabel ordinal & nominal
+df_encoded <- df %>%
+  mutate(
+    Preparation_num = recode(Preparation, "0-1 Hour" = 1, "2-3 Hours" = 2, "More than 3 Hours" = 3),
+    Gaming_num = recode(Gaming, "0-1 Hour" = 1, "2-3 Hours" = 2, "More than 3 Hours" = 3),
+    Attendance_num = recode(Attendance, "Below 40%" = 1, "40%-59%" = 2, "60%-79%" = 3, "80%-100%" = 4),
+    Semester_num = as.numeric(gsub("[^0-9]", "", Semester)),
+    Income_num = recode(Income, "Low (Below 15,000)" = 1, "Lower middle (15,000-30,000)" = 2, "Upper middle (30,000-50,000)" = 3, "High (Above 50,000)" = 4),
+    Job_num = ifelse(Job == "Yes", 1, 0),
+    Extra_num = ifelse(Extra == "Yes", 1, 0),
+    Hometown_num = ifelse(Hometown == "City", 1, 0),
+    Gender_num = ifelse(Gender == "Male", 1, 0)
+  )
+
+# One-hot encoding untuk variabel Department
+dept_onehot <- model.matrix(~ Department - 1, data = df)
+df_ready <- cbind(df_encoded, dept_onehot)
+
+# Standarisasi data
+df_scaled <- scale(df_ready)
+
+# Menentukan jumlah klaster optimal dengan Elbow Method
+set.seed(6969)
+fviz_nbclust(df_scaled, kmeans, method = "wss") +
+  geom_vline(xintercept = 3, linetype = 2) +
+  labs(subtitle = "Elbow Method untuk menentukan jumlah cluster")
+
+# Klasterisasi K-Means
+kmeans_result <- kmeans(df_scaled, centers = 3, nstart = 25)
+
+# Visualisasi hasil klaster
+fviz_cluster(kmeans_result, data = df_scaled, geom = "point", ellipse.type = "convex", palette = "jco", ggtheme = theme_minimal())
+
+# Analisis PCA dan visualisasi biplot
+pca <- prcomp(df_scaled)
+fviz_pca_biplot(pca, habillage = kmeans_result$cluster, addEllipses = TRUE, palette = "jco", ggtheme = theme_minimal())
+\end{lstlisting}
+
+Kode di atas menunjukkan alur utama analisis: mulai dari pra-pemrosesan data, encoding variabel, standarisasi, penentuan jumlah klaster optimal, klasterisasi K-Means, hingga visualisasi hasil klaster dan PCA. Seluruh proses dilakukan secara terstruktur dan dapat direplikasi, sehingga mendukung transparansi dan validitas hasil penelitian.
+
+Seluruh kode R dan data yang digunakan dalam penelitian ini dapat diakses secara terbuka melalui repositori \url{https://github.com/stezd/paper-metkuan}. Kode tersebut didistribusikan dengan lisensi \textbf{\textit{MIT No Attribution}}, sehingga dapat digunakan, dimodifikasi, dan didistribusikan kembali secara bebas untuk keperluan apa pun tanpa batasan.

@@ -1,0 +1,18 @@
+\begin{tikzpicture}[
+        node distance=1.7cm and 2.5cm,
+        every node/.style={rectangle, draw, rounded corners, align=center, minimum width=3.5cm, minimum height=1cm},
+        arrow/.style={-{Latex[width=2mm]}, thick}
+    ]
+    \node (raw) {Data Mentah};
+    \node (pre) [below=of raw] {Pra-pemrosesan Data\\(Cleaning, Encoding, Standarisasi)};
+    \node (pca) [below=of pre] {Reduksi Dimensi\\(PCA)};
+    \node (kmeans) [below=of pca] {Klasterisasi\\(K-Means)};
+    \node (eval) [below left=1.2cm and -0.5cm of kmeans] {Evaluasi Klaster\\(Silhouette, Gap)};
+    \node (vis) [below right=1.2cm and -0.5cm of kmeans] {Visualisasi Hasil\\(Plot Klaster, Biplot PCA)};
+
+    \draw[arrow] (raw) -- (pre);
+    \draw[arrow] (pre) -- (pca);
+    \draw[arrow] (pca) -- (kmeans);
+    \draw[arrow] (kmeans) -- (eval);
+    \draw[arrow] (kmeans) -- (vis);
+    \end{tikzpicture}

@@ -6,7 +6,10 @@
 % Class Information
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{NobArticle}[2024/04/27 NobArticle Class]
-
+\hyphenpenalty=1000
+\exhyphenpenalty=1000
+\righthyphenmin=3
+\usepackage[indonesian,english]{babel}
 % Toogle Classes/Options
 \usepackage{etoolbox} % Required for conditional logic
 \newtoggle{unnumberedsections} % Create toggle for a class option
@@ -59,18 +62,23 @@
 
 % Bibliography
 \usepackage[
-	backend=biber, % Use the biber backend for compiling the bibliography
-	citestyle=authoryear, % In-text citation style
-	bibstyle=authoryear, % Bibliography style
-	sorting=nyt, % Order references
-    natbib=true, % Use natbib compatibility mode
-    uniquelist=false % Only show one author, e.g. (Author et al., 2023)
+  backend=biber, % Use the biber backend for compiling the bibliography
+  citestyle=authoryear, % In-text citation style
+  bibstyle=authoryear, % Bibliography style
+  sorting=nyt, % Order references
+  natbib=true, % Use natbib compatibility mode
+  uniquelist=false % Only show one author, e.g. (Author et al., 2023)
 ]{biblatex}
 
 \setlength\bibitemsep{1\itemsep} % Adjust the space between references
 \setlength\bibhang{2em} % Remove indentation
 \renewcommand*{\bibfont}{\normalsize} % Change references font size
 \addbibresource{Bibliography/Bibliography.bib} % Reference document
+
+% Change bibliography title to "Daftar Pustaka"
+\DefineBibliographyStrings{english}{%
+  references = {Daftar Pustaka},
+}
 
 % Highlight both Author and Year in the citations
 \ExecuteBibliographyOptions{maxcitenames=1}
@@ -129,7 +137,7 @@
 \usepackage[bookmarks]{hyperref} % Required for links
 
 % Custom color for citations and references
-\newcommand\shade{85}\colorlet{nobcitecolor}{Aquamarine}
+\newcommand\shade{85}\colorlet{nobcitecolor}{Blue}
 
 \hypersetup{
 	colorlinks=true, % Whether to color the text of links
@@ -191,3 +199,26 @@
 
 % Todo notes
 \newcommand{\todo}[1]{\textcolor{red}{TODO: #1.}}
+
+% Code Listings
+\usepackage{listings}
+\lstset{
+    language=R, % Default language, can be changed per listing
+    basicstyle=\ttfamily\small,
+    frame=single,
+    breaklines=true,
+    numbers=left,
+    numberstyle=\tiny,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{OliveGreen},
+    showstringspaces=false,
+    tabsize=2
+}
+
+% Links
+\usepackage[bookmarks]{hyperref} % Required for links
+
+%tikz
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
